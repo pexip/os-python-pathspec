@@ -1,0 +1,77 @@
+python-pathspec (0.9.0-1) unstable; urgency=medium
+
+  * New upstream version 0.9.0
+  * Updated Standards-Version: 4.6.0 (no changes needed)
+  * Updated years in debian/copyright
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 29 Aug 2021 17:02:30 +0200
+
+python-pathspec (0.8.1-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Ondřej Nový ]
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Philipp Huebner ]
+  * New upstream version 0.8.1
+  * Updated Standards-Version: 4.5.1 (no changes needed)
+  * Updated debhelper compat version: 13
+
+ -- Philipp Huebner <debalance@debian.org>  Mon, 28 Dec 2020 16:09:27 +0100
+
+python-pathspec (0.8.0-1) unstable; urgency=medium
+
+  * New upstream version 0.8.0
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 19 Apr 2020 10:07:30 +0200
+
+python-pathspec (0.7.0-2) unstable; urgency=medium
+
+  * Moved maintainership to Debian Python Modules Team
+  * Updated Vcs-* fields
+
+ -- Philipp Huebner <debalance@debian.org>  Fri, 28 Feb 2020 14:08:03 +0100
+
+python-pathspec (0.7.0-1) unstable; urgency=medium
+
+  * New upstream version 0.7.0
+  * Updated Standards-Version: 4.5.0 (no changes needed)
+  * Rules-Requires-Root: no
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 16 Feb 2020 00:31:31 +0100
+
+python-pathspec (0.6.0-1) unstable; urgency=medium
+
+  * New upstream version 0.6.0
+  * Switched to debhelper compat level 12
+  * Updated Standards-Version: 4.4.1 (no changes needed)
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 20 Oct 2019 19:33:40 +0200
+
+python-pathspec (0.5.9-1) unstable; urgency=medium
+
+  * New upstream version 0.5.9
+  * Updated Standards-Version: 4.2.1 (no changes needed)
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 18 Nov 2018 19:16:29 +0100
+
+python-pathspec (0.5.6-1) unstable; urgency=medium
+
+  * New upstream version 0.5.6
+  * Updated Standards-Version: 4.1.4 (no changes needed)
+  * Updated Vcs-* fields in debian/control
+  * Switched to debhelper 11
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 09 May 2018 14:06:48 +0200
+
+python-pathspec (0.5.5-1) unstable; urgency=medium
+
+  * Initial release (Closes: #877705)
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 04 Oct 2017 18:08:59 +0200
