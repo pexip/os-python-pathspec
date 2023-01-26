@@ -1,3 +1,24 @@
+python-pathspec (0.11.0-1) unstable; urgency=medium
+
+  * New upstream version 0.11.0
+  * debian/copyright: update years
+  * debian/control: add flit + python3-flit-scm to Build-Depends
+  * debian/source/lintian-overrides: update due to renamed tag
+
+ -- Philipp Huebner <debalance@debian.org>  Thu, 26 Jan 2023 10:05:11 +0100
+
+python-pathspec (0.10.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Refer to /usr/share/common-licenses/MPL-2.0 instead of carrying the full
+    license text.
+  * Update GitHub URL in control, copyright, metadata.
+  * Build with pybuild-plugin-pyproject.
+  * Bump Standards-Version to 4.6.1, no changes needed.
+
+ -- Stefano Rivera <stefanor@debian.org>  Tue, 13 Sep 2022 10:20:33 +0200
+
 python-pathspec (0.9.0-1) unstable; urgency=medium
 
   * New upstream version 0.9.0
