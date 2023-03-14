@@ -10,7 +10,6 @@ Build-Depends: debhelper,
                flit,
                pybuild-plugin-pyproject,
                python3-all,
-               python3-flit-scm,
                python3-setuptools
 Standards-Version: 4.6.1
 Rules-Requires-Root: no
