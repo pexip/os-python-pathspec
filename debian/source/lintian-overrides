@@ -1,1 +1,1 @@
-python-pathspec source: debian-watch-does-not-check-gpg-signature
+python-pathspec source: debian-watch-does-not-check-openpgp-signature

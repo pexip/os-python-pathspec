@@ -1,6 +1,6 @@
 
-*pathspec*: Path Specification
-==============================
+PathSpec
+========
 
 *pathspec* is a utility library for pattern matching of file paths. So
 far this only includes Git's wildmatch pattern matching which itself is
@@ -19,7 +19,7 @@ certain files, and ignore others depending on certain conditions::
 	>>> import pathspec
 	>>> # The gitignore-style patterns for files to select, but we're including
 	>>> # instead of ignoring.
-	>>> spec = """
+	>>> spec_text = """
 	...
 	... # This is a comment because the line begins with a hash: "#"
 	...
@@ -51,23 +51,23 @@ certain files, and ignore others depending on certain conditions::
 We want to use the ``GitWildMatchPattern`` class to compile our patterns. The
 ``PathSpec`` class provides an interface around pattern implementations::
 
-	>>> spec = pathspec.PathSpec.from_lines(pathspec.patterns.GitWildMatchPattern, spec.splitlines())
+	>>> spec = pathspec.PathSpec.from_lines(pathspec.patterns.GitWildMatchPattern, spec_text.splitlines())
 
 That may be a mouthful but it allows for additional patterns to be implemented
 in the future without them having to deal with anything but matching the paths
 sent to them. ``GitWildMatchPattern`` is the implementation of the actual
-pattern which internally gets converted into a regular expression.
-``PathSpec`` is a simple wrapper around a list of compiled patterns.
+pattern which internally gets converted into a regular expression. ``PathSpec``
+is a simple wrapper around a list of compiled patterns.
 
 To make things simpler, we can use the registered name for a pattern class
 instead of always having to provide a reference to the class itself. The
 ``GitWildMatchPattern`` class is registered as **gitwildmatch**::
 
-	>>> spec = pathspec.PathSpec.from_lines('gitwildmatch', spec.splitlines())
+	>>> spec = pathspec.PathSpec.from_lines('gitwildmatch', spec_text.splitlines())
 
 If we wanted to manually compile the patterns we can just do the following::
 
-	>>> patterns = map(pathspec.patterns.GitWildMatchPattern, spec.splitlines())
+	>>> patterns = map(pathspec.patterns.GitWildMatchPattern, spec_text.splitlines())
 	>>> spec = PathSpec(patterns)
 
 ``PathSpec.from_lines()`` is simply a class method which does just that.
@@ -89,6 +89,14 @@ Or you can perform matching on a specific set of file paths with::
 Or check to see if an individual file matches::
 
 	>>> is_matched = spec.match_file(file_path)
+
+There is a specialized class, ``pathspec.GitIgnoreSpec``, which more closely
+implements the behavior of **gitignore**. This uses ``GitWildMatchPattern``
+pattern by default and handles some edge cases differently from the generic
+``PathSpec`` class. ``GitIgnoreSpec`` can be used without specifying the pattern
+factory::
+
+	>>> spec = pathspec.GitIgnoreSpec.from_lines(spec_text.splitlines())
 
 
 License
@@ -113,28 +121,30 @@ Source
 ------
 
 The source code for *pathspec* is available from the GitHub repo
-`cpburnz/python-path-specification`_.
+`cpburnz/python-pathspec`_.
 
-.. _`cpburnz/python-path-specification`: https://github.com/cpburnz/python-path-specification
+.. _`cpburnz/python-pathspec`: https://github.com/cpburnz/python-pathspec
 
 
 Installation
 ------------
 
-*pathspec* requires the following packages:
-
-- `setuptools`_
-
-*pathspec* can be installed from source with::
-
-	python setup.py install
-
-*pathspec* is also available for install through `PyPI`_::
+*pathspec* is available for install through `PyPI`_::
 
 	pip install pathspec
 
-.. _`setuptools`: https://pypi.python.org/pypi/setuptools
+*pathspec* can also be built from source. The following packages will be
+required:
+
+- `build`_ (>=0.6.0)
+
+*pathspec* can then be built and installed with::
+
+	python -m build
+	pip install dist/pathspec-*-py3-none-any.whl
+
 .. _`PyPI`: http://pypi.python.org/pypi/pathspec
+.. _`build`: https://pypi.org/project/build/
 
 
 Documentation
@@ -142,12 +152,14 @@ Documentation
 
 Documentation for *pathspec* is available on `Read the Docs`_.
 
-.. _`Read the Docs`: http://python-path-specification.readthedocs.io
+.. _`Read the Docs`: https://python-path-specification.readthedocs.io
 
 
 Other Languages
 ---------------
 
-*pathspec* is also available as a `Ruby gem`_.
+The related project `pathspec-ruby`_ (by *highb*) provides a similar library as
+a `Ruby gem`_.
 
-.. _`Ruby gem`: https://github.com/highb/pathspec-ruby
+.. _`pathspec-ruby`: https://github.com/highb/pathspec-ruby
+.. _`Ruby gem`: https://rubygems.org/gems/pathspec
